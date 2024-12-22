@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\NotesAPI.csproj": {}
+    "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\NotesApp.EF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\NotesAPI.csproj": {
+    "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\NotesApp.EF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\NotesAPI.csproj",
-        "projectName": "NotesAPI",
-        "projectPath": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\NotesAPI.csproj",
+        "projectUniqueName": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\NotesApp.EF.csproj",
+        "projectName": "NotesApp.EF",
+        "projectPath": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\NotesApp.EF.csproj",
         "packagesPath": "C:\\Users\\leo_e\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\obj\\",
+        "outputPath": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\leo_e\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,28 +44,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.2, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.2, )"
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[8.0.2, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -78,9 +56,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

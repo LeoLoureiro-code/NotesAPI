@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\NotesAPI.csproj": {}
+    "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\NotesApp.DataAcccess.EF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\NotesAPI.csproj": {
+    "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\NotesApp.DataAcccess.EF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\NotesAPI.csproj",
-        "projectName": "NotesAPI",
-        "projectPath": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\NotesAPI.csproj",
+        "projectUniqueName": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\NotesApp.DataAcccess.EF.csproj",
+        "projectName": "NotesApp.DataAcccess.EF",
+        "projectPath": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\NotesApp.DataAcccess.EF.csproj",
         "packagesPath": "C:\\Users\\leo_e\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesAPI\\obj\\",
+        "outputPath": "C:\\Users\\leo_e\\OneDrive\\Documents\\Proyectos\\C#\\NotesApp.EF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\leo_e\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,10 +60,6 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[8.0.2, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
             }
           },
           "imports": [
@@ -78,9 +74,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

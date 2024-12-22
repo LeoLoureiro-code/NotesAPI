@@ -1,0 +1,15 @@
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\bin\Debug\net8.0\NotesApp.DataAcccess.EF.deps.json
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\bin\Debug\net8.0\NotesApp.DataAcccess.EF.runtimeconfig.json
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\bin\Debug\net8.0\NotesApp.DataAcccess.EF.dll
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\bin\Debug\net8.0\NotesApp.DataAcccess.EF.pdb
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\NotesApp.DataAcccess.EF.csproj.AssemblyReference.cache
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\NotesApp.DataAcccess.EF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\NotesApp.DataAcccess.EF.AssemblyInfoInputs.cache
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\NotesApp.DataAcccess.EF.AssemblyInfo.cs
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\NotesApp.DataAcccess.EF.csproj.CoreCompileInputs.cache
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\NotesApp.DataAcccess.EF.sourcelink.json
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\NotesApp.DataAcccess.EF.dll
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\refint\NotesApp.DataAcccess.EF.dll
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\NotesApp.DataAcccess.EF.pdb
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\NotesApp.DataAcccess.EF.genruntimeconfig.cache
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\NotesApp.EF\obj\Debug\net8.0\ref\NotesApp.DataAcccess.EF.dll

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NotesAPI.Models;
+namespace NotesApp.DataAcccess.EF.Models;
 
 public partial class NotesTag
 {
