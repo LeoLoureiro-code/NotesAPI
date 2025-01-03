@@ -1,0 +1,14 @@
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\bin\Debug\net8.0\NotesAppAPI.DataAccess.EF.deps.json
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\bin\Debug\net8.0\NotesAppAPI.DataAccess.EF.runtimeconfig.json
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\bin\Debug\net8.0\NotesAppAPI.DataAccess.EF.dll
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\bin\Debug\net8.0\NotesAppAPI.DataAccess.EF.pdb
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\NotesAppAPI.DataAccess.EF.csproj.AssemblyReference.cache
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\NotesAppAPI.DataAccess.EF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\NotesAppAPI.DataAccess.EF.AssemblyInfoInputs.cache
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\NotesAppAPI.DataAccess.EF.AssemblyInfo.cs
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\NotesAppAPI.DataAccess.EF.csproj.CoreCompileInputs.cache
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\NotesAppAPI.DataAccess.EF.dll
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\refint\NotesAppAPI.DataAccess.EF.dll
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\NotesAppAPI.DataAccess.EF.pdb
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\NotesAppAPI.DataAccess.EF.genruntimeconfig.cache
+C:\Users\leo_e\OneDrive\Documents\Proyectos\C#\Notes\NotesAppAPI.DataAccess.EF\obj\Debug\net8.0\ref\NotesAppAPI.DataAccess.EF.dll
