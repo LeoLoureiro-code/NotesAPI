@@ -20,7 +20,7 @@ public partial class NotesAPIDbContext : DbContext
     public virtual DbSet<Note> Notes { get; set; }
 
     public virtual DbSet<NotesTag> NotesTags { get; set; }
-
+    
     public virtual DbSet<Tag> Tags { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
