@@ -11,12 +11,10 @@ public class User
 
     }
 
-    public User( string userEmail, string userPassword, ICollection<Note> notes = null, ICollection<NotesTag> notesTags= null)
+    public User( string userEmail, string userPassword)
     {
         UserEmail = userEmail;
         UserPassword = userPassword;
-        Notes = notes;
-        NotesTags = notesTags;
     }
 
     public int UserId { get; set; }
