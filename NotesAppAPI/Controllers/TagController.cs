@@ -31,7 +31,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = ex.Message, response = list });
+                return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message, response = list });
             }
         }
 
@@ -48,16 +48,16 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = ex.Message, response = note });
+                return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message, response = note });
             }
 
         }
 
         [HttpPost]
         [Route("AddTag")]
-        public IActionResult CreateTag([FromBody] int tagId, string tagName)
+        public IActionResult CreateTag([FromBody] string tagName)
         {
-            Tag tag = new Tag(tagId, tagName);
+            Tag tag = new Tag(tagName);
 
             try
             {
@@ -66,7 +66,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = ex.Message });
+                return StatusCode(StatusCodes.Status401Unauthorized, new { messaje = ex.Message });
             }
 
         }
@@ -84,7 +84,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = ex.Message });
+                return StatusCode(StatusCodes.Status401Unauthorized, new { messaje = ex.Message });
             }
         }
 
@@ -100,7 +100,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = "ok" });
+                return StatusCode(StatusCodes.Status401Unauthorized, new { messaje = ex });
             }
 
 

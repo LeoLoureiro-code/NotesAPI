@@ -30,7 +30,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = ex.Message, response = user });
+                return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message, response = user });
             }
 
         }
@@ -39,7 +39,7 @@ namespace NotesAppAPI.Controllers
         [Route("AddUser")]
         public IActionResult CreateUser([FromBody] string userEmail, string userPassword)
         {
-            User user = new User(userEmail, userPassword, null, null);
+            User user = new User(userEmail, userPassword);
 
             try
             {
@@ -48,7 +48,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message });
             }
 
         }
@@ -66,7 +66,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = ex.Message });
+                return StatusCode(StatusCodes.Status401Unauthorized, new { messaje = ex.Message });
             }
         }
 
@@ -82,7 +82,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = "ok" });
+                return StatusCode(StatusCodes.Status401Unauthorized, new { messaje = ex });
             }
 
 

@@ -20,7 +20,7 @@ namespace NotesAppAPI.Controllers
 
         [HttpGet]
         [Route("GetAllNotes")]
-       public IActionResult GetAllNotes()
+        public IActionResult GetAllNotes()
         {
             List<Note> list = new List<Note>();
 
@@ -31,7 +31,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new {messaje = ex.Message, response = list});
+                return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message, response = list });
             }
         }
 
@@ -48,25 +48,25 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new {messaje = ex.Message, response = note});
+                return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message, response = note });
             }
- 
+
         }
 
         [HttpPost]
         [Route("AddNote")]
-        public IActionResult CreateNote(string noteTitle, string noteContent, int userId)
+        public IActionResult CreateNote(int userId, [FromBody] string noteTitle, string noteContent)
         {
            Note note = new Note(noteTitle, noteContent, userId);
 
             try
             {
                 _noteRepository.CreateNote(note);
-                return StatusCode(StatusCodes.Status200OK, new { messaje = "ok" });
+                return StatusCode(StatusCodes.Status200OK, new { messaje = note });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = ex.Message });
+                return StatusCode(StatusCodes.Status401Unauthorized, new { messaje = ex.Message });
             }
 
         }
@@ -74,7 +74,7 @@ namespace NotesAppAPI.Controllers
         //PUT: api/notes/{id}
         [HttpPut]
         [Route("UpdateNote")]
-        public IActionResult UpdateNote(int id, string noteTitle, string noteContent)
+        public IActionResult UpdateNote(int id, [FromBody] string noteTitle, string noteContent)
         {
 
             try
@@ -84,7 +84,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new {messaje = ex.Message});
+                return StatusCode(StatusCodes.Status401Unauthorized, new {messaje = ex.Message});
             }
         }
 
@@ -100,7 +100,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { messaje = "ok" });
+                return StatusCode(StatusCodes.Status401Unauthorized, new { messaje = ex });
             }
             
 
