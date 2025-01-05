@@ -20,6 +20,7 @@ namespace NotesAppAPI.DataAccess.EF.Repositories
 
         public int CreateUser(User user)
         {
+            
             _context.Add(user);
             _context.SaveChanges();
 
