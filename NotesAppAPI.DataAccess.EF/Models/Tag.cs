@@ -11,9 +11,8 @@ public class Tag
 
     }
 
-    public Tag(int tagId, string tagName)
+    public Tag(string tagName)
     {
-        TagId = tagId;
         TagName = tagName;
     }
 
