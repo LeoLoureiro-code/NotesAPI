@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NotesAppAPI.DataAccess.EF.Models;
 using NotesAppAPI.DataAccess.EF.Repositories;
 
@@ -19,6 +20,7 @@ namespace NotesAppAPI.Controllers
 
         //GET: api/notes/{id}
         [HttpGet]
+        [Authorize]
         [Route("GetUserById")]
         public IActionResult GetuserById(int id)
         {
@@ -30,7 +32,7 @@ namespace NotesAppAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message, response = user });
+                return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message, response = ex });
             }
 
         }
