@@ -7,6 +7,7 @@ namespace NotesAppAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class TagController : ControllerBase
     {
 
