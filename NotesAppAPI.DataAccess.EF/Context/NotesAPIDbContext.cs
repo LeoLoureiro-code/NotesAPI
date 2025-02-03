@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NotesAppAPI.DataAccess.EF.Models;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
@@ -26,8 +27,9 @@ public partial class NotesAPIDbContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=50.6.160.84;database=arkedste_Notes;, ServerVersion.Parse("5.7.23-mysql"));
+    => optionsBuilder.UseMySql(
+        );
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -106,6 +108,9 @@ public partial class NotesAPIDbContext : DbContext
             entity.Property(e => e.UserId).HasColumnType("int(11)");
             entity.Property(e => e.UserEmail).HasMaxLength(45);
             entity.Property(e => e.UserPassword).HasMaxLength(45);
+
+            entity.Property(e => e.RefreshToken).HasMaxLength(500);
+            entity.Property(e => e.RefreshTokenExpiryTime).HasColumnType("datetime");
         });
 
         OnModelCreatingPartial(modelBuilder);
