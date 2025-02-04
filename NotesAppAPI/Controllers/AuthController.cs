@@ -1,60 +1,78 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using NotesAppAPI.DataAccess.EF.Context;
 using NotesAppAPI.DataAccess.EF.Models;
-using NotesAppAPI.DTO;
+using NotesAppAPI.DataAccess.EF.Repositories;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-[Route("api/[controller]")]
-[ApiController]
-public class AuthController : ControllerBase
+namespace NotesAppAPI.Controllers
 {
-    private readonly NotesAPIDbContext _context;
-    private readonly IConfiguration _configuration;
-
-    public AuthController(NotesAPIDbContext context, IConfiguration configuration)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AuthController : ControllerBase
     {
-        _context = context;
-        _configuration = configuration;
-    }
+        private readonly UserRepository _userRepository;
+        private readonly IConfiguration _configuration;
 
-    [HttpPost("login")]
-    public IActionResult Login([FromBody] LoginRequest request)
-    {
-        // Validar credenciales del usuario
-        var user = _context.Users.SingleOrDefault(u =>
-            u.UserEmail == request.UserEmail && u.UserPassword == request.UserPassword);
-
-        if (user == null)
+        public AuthController(UserRepository userRepository, IConfiguration configuration)
         {
-            return Unauthorized(new { Message = "Invalid email or password." });
+            _userRepository = userRepository;
+            _configuration = configuration;
         }
 
-        // Generar token JWT
-        var jwtSettings = _configuration.GetSection("JwtSettings");
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]));
-        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-        var claims = new[]
+        [HttpPost("refresh-token")]
+        public IActionResult RefreshToken([FromBody] RefreshTokenRequest request)
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserEmail),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(ClaimTypes.Name, user.UserEmail)
-        };
+            if (request == null || string.IsNullOrWhiteSpace(request.RefreshToken))
+            {
+                return BadRequest("Refresh token is required.");
+            }
 
-        var token = new JwtSecurityToken(
-            issuer: jwtSettings["Issuer"],
-            audience: jwtSettings["Audience"],
-            claims: claims,
-            expires: DateTime.UtcNow.AddHours(1),
-            signingCredentials: credentials
-        );
+            var user = _userRepository.GetUserByRefreshToken(request.RefreshToken);
+            if (user == null)
+            {
+                return Unauthorized("Invalid refresh token.");
+            }
 
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var tokenString = tokenHandler.WriteToken(token);
+            var newAccessToken = GenerateAccessToken(user); 
+            var newRefreshToken = GenerateRefreshToken(user); 
 
-        return Ok(new { Token = tokenString });
+            return Ok(new { accessToken = newAccessToken, refreshToken = newRefreshToken });
+        }
+
+        private string GenerateAccessToken(User user)
+        {
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.Name, user.UserEmail),
+                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString())
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Key"]));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["JwtSettings:Issuer"],
+                audience: _configuration["JwtSettings:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(30), 
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        private string GenerateRefreshToken(User user)
+        {
+           
+            var refreshToken = Guid.NewGuid().ToString();
+
+            
+            _userRepository.UpdateRefreshToken(user.UserId, refreshToken);
+
+            return refreshToken;
+        }
     }
 }

@@ -9,7 +9,6 @@ namespace NotesAppAPI.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-
         private readonly UserRepository _userRepository;
 
         public UserController(UserRepository userRepository)
@@ -17,14 +16,13 @@ namespace NotesAppAPI.Controllers
             _userRepository = userRepository;
         }
 
-
         //GET: api/notes/{id}
         [HttpGet]
         [Authorize]
-        [Route("GetUserById")]
-        public IActionResult GetuserById(int id)
+        [Route("GetUserByEmail")]
+        public IActionResult GetuserById(string email)
         {
-            var user = _userRepository.GetUserById(id);
+            var user = _userRepository.GetUserByEmail(email);
 
             try
             {
@@ -34,25 +32,25 @@ namespace NotesAppAPI.Controllers
             {
                 return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message, response = ex });
             }
-
         }
 
         [HttpPost]
         [Route("AddUser")]
         public IActionResult CreateUser([FromBody] string userEmail, string userPassword)
         {
-            User user = new User(userEmail, userPassword);
+            User user = new User { UserEmail = userEmail };
 
             try
             {
-                _userRepository.CreateUser(user);
-                return StatusCode(StatusCodes.Status200OK, new { messaje = "ok" });
+               
+                _userRepository.CreateUser(user, userPassword);
+
+                return StatusCode(StatusCodes.Status200OK, new { message = "User created successfully" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status404NotFound, new { messaje = ex.Message });
+                return StatusCode(StatusCodes.Status404NotFound, new { message = ex.Message });
             }
-
         }
 
         //PUT: api/users/{id}
@@ -61,7 +59,6 @@ namespace NotesAppAPI.Controllers
         [Authorize]
         public IActionResult UpdateUser(int id, [FromBody] string userPassword)
         {
-
             try
             {
                 _userRepository.UpdatePassword(id, userPassword);
@@ -87,9 +84,12 @@ namespace NotesAppAPI.Controllers
             {
                 return StatusCode(StatusCodes.Status401Unauthorized, new { messaje = ex });
             }
-
-
-
         }
+    }
+
+    public class CreateUserRequest
+    {
+        public string UserEmail { get; set; }
+        public string UserPassword { get; set; }
     }
 }
