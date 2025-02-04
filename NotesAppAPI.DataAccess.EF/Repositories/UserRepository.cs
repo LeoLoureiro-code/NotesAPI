@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using NotesAppAPI.DataAccess.EF.Context;
 using NotesAppAPI.DataAccess.EF.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NotesAppAPI.DataAccess.EF.Repositories
 {
@@ -18,24 +14,29 @@ namespace NotesAppAPI.DataAccess.EF.Repositories
             _context = context;
         }
 
-        public int CreateUser(User user)
+        public int CreateUser(User user, string password)
         {
-            
+            var passwordHasher = new PasswordHasher<User>();
+            user.UserPassword = passwordHasher.HashPassword(user, password);  
             _context.Add(user);
             _context.SaveChanges();
-
             return user.UserId;
         }
 
+
         public int UpdatePassword(int userId, string password)
         {
-           User existingUser = _context.Users.Find(userId);
-           var passwordHasher = new PasswordHasher<object>();
+            User existingUser = _context.Users.Find(userId);
+            if (existingUser == null)
+            {
+               
+                return -1; 
+            }
 
-            /*hashed password for security*/
-            string hashedPassword = passwordHasher.HashPassword(null, password);
+            var passwordHasher = new PasswordHasher<User>();
+            string hashedPassword = passwordHasher.HashPassword(existingUser, password);
 
-           existingUser.UserPassword = hashedPassword;
+            existingUser.UserPassword = hashedPassword;
             _context.SaveChanges();
 
             return userId;
@@ -44,15 +45,38 @@ namespace NotesAppAPI.DataAccess.EF.Repositories
         public bool DeleteUser(int userId)
         {
             User existingUser = _context.Users.Find(userId);
+            if (existingUser == null)
+            {
+                // Handle user not found
+                return false;
+            }
+
             _context.Remove(existingUser);
             _context.SaveChanges();
             return true;
         }
 
-        public User GetUserById(int userId)
+        public User GetUserByEmail(string email)
         {
-            User user = _context.Users.Find(userId);
-            return user;
+            return _context.Users.FirstOrDefault(u => u.UserEmail == email);
+        }
+
+        public User GetUserByRefreshToken(string refreshToken)
+        {
+            return _context.Users
+                .FirstOrDefault(u => u.RefreshToken == refreshToken);
+        }
+
+        public bool UpdateRefreshToken(int userId, string refreshToken)
+        {
+            var existingUser = _context.Users.Find(userId);
+            if (existingUser != null)
+            {
+                existingUser.RefreshToken = refreshToken;
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }
