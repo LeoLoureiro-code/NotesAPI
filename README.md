@@ -63,32 +63,32 @@ dotnet run
  ┣ 📜 Program.cs  
  ┣ 📜 Startup.cs  
  ┣ 📂 Controllers  
- ┃ ┣ 📜 AuthController.cs
- ┃ ┣ 📜 LoginController.cs
- ┃ ┣ 📜 NoteController.cs
- ┃ ┣ 📜 TagController.cs
- ┃ ┣ 📜 UserController.cs
- ┣ 📂 DTO
- ┃ ┣ 📜 LoginRequest.cs
- 📦 NotesAPI.DataAccess.EF
- ┣ 📂 Context
- ┃ ┣ 📜 NotesAPIDbContext.cs
- ┣ 📂 Models
- ┃ ┣ 📜 Note.cs
- ┃ ┣ 📜 NoteTag.cs
- ┃ ┣ 📜 RefreshTokenRequest.cs
- ┃ ┣ 📜 Tag.cs
- ┃ ┣ 📜 User.cs
- ┣ 📂 Repositories
- ┃ ┣ 📜 NoteRepository.cs
- ┃ ┣ 📜 TagRepository.cs
- ┃ ┣ 📜 userRepository.cs
- 📦 NotesAPI.DataAccess.EF
- ┃ ┣ 📜 AuthControllerTest.cs
- ┃ ┣ 📜 LoginControllerTest.cs
- ┃ ┣ 📜 NoteControllerTest.cs
- ┃ ┣ 📜 TagControllerTest.cs
- ┃ ┣ 📜 UserControllerTest.cs
+ ┃ ┣ 📜 AuthController.cs  
+ ┃ ┣ 📜 LoginController.cs  
+ ┃ ┣ 📜 NoteController.cs  
+ ┃ ┣ 📜 TagController.cs  
+ ┃ ┣ 📜 UserController.cs  
+ ┣ 📂 DTO  
+ ┃ ┣ 📜 LoginRequest.cs  
+ 📦 NotesAPI.DataAccess.EF  
+ ┣ 📂 Context  
+ ┃ ┣ 📜 NotesAPIDbContext.cs  
+ ┣ 📂 Models  
+ ┃ ┣ 📜 Note.cs  
+ ┃ ┣ 📜 NoteTag.cs  
+ ┃ ┣ 📜 RefreshTokenRequest.cs  
+ ┃ ┣ 📜 Tag.cs  
+ ┃ ┣ 📜 User.cs  
+ ┣ 📂 Repositories  
+ ┃ ┣ 📜 NoteRepository.cs  
+ ┃ ┣ 📜 TagRepository.cs  
+ ┃ ┣ 📜 userRepository.cs  
+ 📦 NotesAPI.DataAccess.EF  
+ ┃ ┣ 📜 AuthControllerTest.cs  
+ ┃ ┣ 📜 LoginControllerTest.cs  
+ ┃ ┣ 📜 NoteControllerTest.cs  
+ ┃ ┣ 📜 TagControllerTest.cs  
+ ┃ ┣ 📜 UserControllerTest.cs  
 
 ### 🔗 Useful Commands
 
