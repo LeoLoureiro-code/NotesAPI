@@ -57,12 +57,12 @@ dotnet run
 
 ### 📂 Project Structure
 
-📦 NotesAPI
- ┃ ┣ 📜 JwtSettings.cs
- ┣ 📜 appsettings.json
- ┣ 📜 Program.cs
- ┣ 📜 Startup.cs
- ┣ 📂 Controllers
+📦 NotesAPI  
+ ┃ ┣ 📜 JwtSettings.cs  
+ ┣ 📜 appsettings.json  
+ ┣ 📜 Program.cs  
+ ┣ 📜 Startup.cs  
+ ┣ 📂 Controllers  
  ┃ ┣ 📜 AuthController.cs
  ┃ ┣ 📜 LoginController.cs
  ┃ ┣ 📜 NoteController.cs
