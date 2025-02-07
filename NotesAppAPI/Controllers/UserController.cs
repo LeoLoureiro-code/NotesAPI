@@ -55,8 +55,8 @@ namespace NotesAppAPI.Controllers
 
         //PUT: api/users/{id}
         [HttpPut]
-        [Route("UpdateUser")]
         [Authorize]
+        [Route("UpdateUser")]
         public IActionResult UpdateUser(int id, [FromBody] string userPassword)
         {
             try
@@ -71,8 +71,8 @@ namespace NotesAppAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("RemoveUser")]
         [Authorize]
+        [Route("RemoveUser")]
         public IActionResult DeleteUser(int userId)
         {
             try
