@@ -3,7 +3,7 @@
 ## 📌 Overview
 This project is designed as a **learning resource** to understand and implement **JWT-based authentication and refresh tokens** for securing an API. The goal is to build a **robust and secure back-end** that can be used with a **front-end application for taking notes with user authentication**.
 
-Through this project, you'll learn:
+Through this project, you'll applied:
 - **How to implement authentication & authorization using JWT**
 - **How to manage user identities with ASP.NET Identity**
 - **How to use refresh tokens for secure session management**
