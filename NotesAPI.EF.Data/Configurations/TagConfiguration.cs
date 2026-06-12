@@ -17,5 +17,9 @@ public class TagConfiguration : IEntityTypeConfiguration<Tag>
             .HasMaxLength(50);
 
         builder.HasIndex(t => t.Name);
+
+        builder.HasOne(t => t.User)
+        .WithMany(u => u.Tags)
+        .HasForeignKey(t => t.UserId);
     }
 }
