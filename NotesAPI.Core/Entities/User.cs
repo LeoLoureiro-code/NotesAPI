@@ -18,5 +18,8 @@ namespace NotesAPI.Core.Entities
         public Role Role { get; set; }
 
         public ICollection<Note> Notes { get; set; } = new List<Note>();
+
+        public ICollection<Tag> Tags { get; set; }
+            = new List<Tag>();
     }
 }
