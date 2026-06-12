@@ -12,6 +12,11 @@ namespace NotesAPI.Core.Entities
 
         public string Name { get; set; } = null!;
 
-        public ICollection<Note> Notes { get; set; } = new List<Note>();
+        public int UserId { get; set; }
+
+        public User User { get; set; } = null!;
+
+        public ICollection<Note> Notes { get; set; }
+            = new List<Note>();
     }
 }
