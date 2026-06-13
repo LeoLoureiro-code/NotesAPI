@@ -1,4 +1,5 @@
-﻿using NotesAPI.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using NotesAPI.Core.Entities;
 using NotesAPI.Core.Interfaces;
 using NotesAPI.EF.Data.Context;
 using System;
@@ -28,34 +29,52 @@ namespace NotesAPI.EF.Data.Repositories
             await _context.Users.AddAsync(user);
         }
 
-        public Task DeleteUserAsync(int id)
+        public async Task DeleteUserAsync(int id)
         {
-            throw new NotImplementedException();
+            var existingUser = await _context.Users.FindAsync(id);
+            if (existingUser == null)
+            {
+                throw new KeyNotFoundException($"User with id {id} not found.");
+            }
+            _context.Users.Remove(existingUser); 
         }
 
-        public Task<IEnumerable<User>> GetAllUsersAsync()
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Users.ToListAsync();
+
         }
 
-        public Task<User?> GetUserByEmailAsync(string email)
+        public async Task<User?> GetUserByEmailAsync(string email)
         {
-            throw new NotImplementedException();
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        public Task<User?> GetUserByIdAsync(int id)
+        public async Task<User?> GetUserByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Users.FindAsync(id);
         }
 
-        public Task SaveChangesAsync()
+        public async Task<User> UpdateUserAsync(User user)
         {
-            throw new NotImplementedException();
+            ArgumentNullException.ThrowIfNull(user);
+            var existingUser = await _context.Users.FindAsync(user.UserId);
+            if (existingUser == null)
+            {
+                throw new KeyNotFoundException($"User not found.");
+            }
+            existingUser.Email = user.Email;
+            existingUser.HashPassword = user.HashPassword;
+            existingUser.Role = user.Role;
+
+            return existingUser;
         }
 
-        public Task UpdateUserAsync(User user)
+        public Task<int> SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            return _context.SaveChangesAsync(); 
         }
+
+
     }
 }
