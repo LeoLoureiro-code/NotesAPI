@@ -17,10 +17,10 @@ namespace NotesAPI.Core.Interfaces
 
         Task CreateUserAsync(User user);
 
-        Task UpdateUserAsync(User user);
+        Task<User> UpdateUserAsync(User user);
 
         Task DeleteUserAsync(int id);
 
-        Task SaveChangesAsync();
+        Task<int> SaveChangesAsync();
     }
 }
