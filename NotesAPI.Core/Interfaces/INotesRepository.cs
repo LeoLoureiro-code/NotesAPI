@@ -21,7 +21,7 @@ namespace NotesAPI.Core.Interfaces
             int tagId);
         Task CreateNoteAsync(Note note);
         Task UpdateNoteAsync(Note note);
-        Task DeleteNoteAsync(int id);
-        Task SaveChangesAsync();
+        Task DeleteNoteAsync(int noteId, int userId);
+        Task<int> SaveChangesAsync();
     }
 }
