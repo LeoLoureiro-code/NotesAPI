@@ -17,12 +17,12 @@ namespace NotesAPI.Core.Interfaces
             int userId,
             string name);
 
-        Task CreateTagAsync(Tag tag);
+        Task AddTagAsync(Tag tag);
 
         Task UpdateTagAsync(Tag tag);
 
-        Task DeleteTagAsync(int id);
+        Task DeleteTagAsync(int id, int userId);
 
-        Task SaveChangesAsync();
+        Task<int> SaveChangesAsync();
     }
 }
