@@ -11,8 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Enums\" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
 
