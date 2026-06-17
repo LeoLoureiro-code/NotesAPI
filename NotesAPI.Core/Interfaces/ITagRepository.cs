@@ -1,28 +1,18 @@
 ﻿using NotesAPI.Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NotesAPI.Core.Interfaces
+public interface ITagRepository
 {
-    public interface ITagRepository
-    {
-        Task<IEnumerable<Tag>> GetTagsByUserAsync(int userId);
+    Task<IEnumerable<Tag>> GetTagsByUserAsync(int userId);
 
-        Task<Tag?> GetTagByIdAsync(int id);
+    Task<Tag?> GetTagByIdAsync(int tagId, int userId);
 
-        Task<Tag?> GetTagByNameAsync(
-            int userId,
-            string name);
+    Task<Tag?> GetTagByNameAsync(int userId, string name);
 
-        Task AddTagAsync(Tag tag);
+    Task AddTagAsync(Tag tag);
 
-        Task UpdateTagAsync(Tag tag);
+    Task UpdateTagAsync(Tag tag);
 
-        Task DeleteTagAsync(int id, int userId);
+    Task DeleteTagAsync(int tagId, int userId);
 
-        Task<int> SaveChangesAsync();
-    }
+    Task<int> SaveChangesAsync();
 }
