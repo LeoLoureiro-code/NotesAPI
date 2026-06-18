@@ -5,6 +5,7 @@ using NotesAPI.Core.Interfaces;
 using NotesAPI.EF.Data.Context;
 using NotesAPI.EF.Data.Repositories;
 using NotesAPI.EF.Data.Services;
+using NotesAPI.Middleware;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -57,6 +58,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AngularPolicy");
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseAuthorization();
 
